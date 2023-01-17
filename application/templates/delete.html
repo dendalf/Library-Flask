@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td width="150px"><h2>Flask Library</h2></td>
+            <td width="100px"><a href="{{ url_for('index') }}">Home</a></td>
+            <td width="130px"><a href="{{ url_for('read_books') }}">Book list</a></td>
+            <td width="100px"><a href="{{ url_for('create') }}">Create book</a></td>
+        </tr>
+    </table>
+    <hr>
+    <h1>{{ title }}</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            Are you want to remove book "{{ book.title }}"?
+        </p>
+        <p>
+            {{ form.submit() }}
+            <a href="{{ url_for('detail', pk=book.id) }}">Cancel</a>
+        </p>
+    </form>
+</body>
+</html>
